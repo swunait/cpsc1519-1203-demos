@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TemperatureConverter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature Converter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPn-b1-mpd">
+                                <rect key="frame" x="54" y="44" width="306" height="37"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 Celsius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LQL-Ks-XnB">
+                                <rect key="frame" x="172" y="97" width="70" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-35" maximumValue="35" translatesAutoresizingMaskIntoConstraints="NO" id="PpY-Wa-lP7">
+                                <rect key="frame" x="160" y="133" width="94" height="32"/>
+                                <connections>
+                                    <action selector="temperatureChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="VwY-YW-Wnc"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="32 Fahrenheit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PWM-YT-kiy">
+                                <rect key="frame" x="154.5" y="181" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-35" maxValue="35" translatesAutoresizingMaskIntoConstraints="NO" id="rve-3V-Ztt">
+                                <rect key="frame" x="18" y="226" width="378" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="nJM-Dr-JkD"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                        <constraints>
+                            <constraint firstItem="PpY-Wa-lP7" firstAttribute="top" secondItem="LQL-Ks-XnB" secondAttribute="bottom" constant="15" id="0Jq-BI-Pjc"/>
+                            <constraint firstItem="OPn-b1-mpd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0uN-lS-txi"/>
+                            <constraint firstItem="rve-3V-Ztt" firstAttribute="top" secondItem="PWM-YT-kiy" secondAttribute="bottom" constant="24" id="BRS-AI-Bac"/>
+                            <constraint firstItem="rve-3V-Ztt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JX9-88-Dd9"/>
+                            <constraint firstItem="rve-3V-Ztt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ZNG-iP-EG0"/>
+                            <constraint firstItem="PWM-YT-kiy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ckW-tk-niM"/>
+                            <constraint firstItem="LQL-Ks-XnB" firstAttribute="top" secondItem="OPn-b1-mpd" secondAttribute="bottom" constant="16" id="e8w-iK-1Q5"/>
+                            <constraint firstItem="OPn-b1-mpd" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="gC5-1z-EcG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rve-3V-Ztt" secondAttribute="trailing" constant="20" id="gDF-0m-K4n"/>
+                            <constraint firstItem="PpY-Wa-lP7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iGg-TZ-DV1"/>
+                            <constraint firstItem="LQL-Ks-XnB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wGu-KR-ohG"/>
+                            <constraint firstItem="PWM-YT-kiy" firstAttribute="top" secondItem="PpY-Wa-lP7" secondAttribute="bottom" constant="16" id="xgq-K7-8Bc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="celsiusLabel" destination="LQL-Ks-XnB" id="Pfg-E0-2mc"/>
+                        <outlet property="fahrenheitLabel" destination="PWM-YT-kiy" id="Fiz-gY-lUZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="100.44642857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
