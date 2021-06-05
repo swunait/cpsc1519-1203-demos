@@ -13,13 +13,22 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
+    //var randomInt : Int = 1
+    
     
     @IBAction func login(_ sender: UIButton) {
         // If the password is CPSC1519 then present the HomeViewController
         // otherwise use an Alert to indicate an incorrect password
         
-        if let homeVC = storyboard?.instantiateViewController(identifier: "homeVC") {
-            self.present(homeVC, animated: true, completion: nil)
+//        if let homeVC = storyboard?.instantiateViewController(identifier: "homeVC") {
+//            self.present(homeVC, animated: true, completion: nil)
+//        }
+        // If the password text value is Password1519 then perform the segue toHomeVCSegue
+        let password = passwordTextField.text
+        if password == "Password1519" {
+            self.performSegue(withIdentifier: "toHomeVCSegue", sender: self)
+        } else {
+            print("Incorrect password")
         }
     
         
@@ -47,16 +56,20 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
+        guard let homeVC : HomeViewController = segue.destination as? HomeViewController else {
+            return
+        }
         // Pass the selected object to the new view controller.
+        homeVC.loggedInUsername = usernameTextField.text!
+        
     }
-    */
+
 
 }

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZhR-HK-wV5">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="ZhR-HK-wV5">
                                 <rect key="frame" x="20" y="44" width="374" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -56,6 +57,7 @@
                     <connections>
                         <outlet property="passwordTextField" destination="HrB-sb-LBQ" id="Pfr-E5-qMl"/>
                         <outlet property="usernameTextField" destination="WXM-Nk-90g" id="O21-5E-0YK"/>
+                        <segue destination="T1H-rH-yD4" kind="show" identifier="toHomeVCSegue" id="1lw-iI-ZWu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -67,35 +69,65 @@
             <objects>
                 <viewController storyboardIdentifier="homeVC" title="Home" id="T1H-rH-yD4" customClass="HomeViewController" customModule="MultiviewDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VnO-bi-Pk7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9B-iH-mNU">
-                                <rect key="frame" x="141" y="44" width="133" height="37"/>
+                                <rect key="frame" x="125" y="120" width="133" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FKz-2W-Nmh">
-                                <rect key="frame" x="183" y="101" width="48" height="30"/>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sSb-hg-70m">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="Home" id="yhH-m5-aoL">
+                                        <barButtonItem key="leftBarButtonItem" title="Logout" id="xBs-hs-Iik">
+                                            <connections>
+                                                <segue destination="Y8o-V3-0mc" kind="unwind" unwindAction="closeHomeViewControllerWithSegue:" id="RJg-7H-Yb9"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Random Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9pz-KG-6lm">
+                                <rect key="frame" x="127" y="177" width="129" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZN-La-6JC">
+                                <rect key="frame" x="159" y="225" width="64" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <state key="normal" title="Generate">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Y8o-V3-0mc" kind="unwind" unwindAction="closeHomeViewControllerWithSegue:" id="LoP-4q-eiZ"/>
+                                    <action selector="generateTapped:" destination="T1H-rH-yD4" eventType="touchUpInside" id="sOK-TM-Dgl"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bKX-Yd-nmw"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="sSb-hg-70m" firstAttribute="trailing" secondItem="bKX-Yd-nmw" secondAttribute="trailing" id="Iep-qL-ZG8"/>
+                            <constraint firstItem="sSb-hg-70m" firstAttribute="top" secondItem="bKX-Yd-nmw" secondAttribute="top" id="SLx-kp-vAV"/>
+                            <constraint firstItem="sSb-hg-70m" firstAttribute="leading" secondItem="bKX-Yd-nmw" secondAttribute="leading" id="r8t-mI-pAI"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="qK9-Q7-29I"/>
+                    <connections>
+                        <outlet property="randomNumberLabel" destination="9pz-KG-6lm" id="qZn-Fv-3Tk"/>
+                        <outlet property="usernameLabel" destination="z9B-iH-mNU" id="rdA-bs-B8G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uTp-qe-OjJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="Y8o-V3-0mc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="933" y="707"/>
+            <point key="canvasLocation" x="981" y="773"/>
         </scene>
         <!--Help-->
         <scene sceneID="Cu2-v3-hnY">
@@ -135,6 +167,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Background" width="256" height="256"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
