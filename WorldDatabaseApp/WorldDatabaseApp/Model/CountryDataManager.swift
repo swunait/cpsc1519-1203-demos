@@ -9,8 +9,8 @@ import Foundation
 
 class CountryDataManager {
     
-//    var countryNames:[String] = [String]()
     private var countries: [Country] = []
+    let continents = ["Asia","Europe","North America","Africa","Ocenia","South America"].sorted()
     
     init() {
 //        guard let plistUrl = Bundle.main.url(forResource: "CountryArrayString", withExtension: "plist"),
@@ -27,17 +27,28 @@ class CountryDataManager {
         }
         
         for currentDictionary in arrayOfDict {
-            countries.append(Country(dict: currentDictionary))
+            let currentCountry = Country(dict: currentDictionary)
+            countries.append(currentCountry)
         }
         
     }
     
     func country(at index: IndexPath) -> Country {
-        return countries[index.item]
+        return countries[index.row]
     }
     
     func numberOfCountries() -> Int {
         return countries.count
     }
+    
+    func countries(for continent: String) -> [Country] {
+        return countries.filter { $0.continent == continent }
+    }
+    
+    func numberOfCountries(for continent: String) -> Int {
+        return countries.filter { $0.continent == continent}.count
+    }
+    
+    
     
 }

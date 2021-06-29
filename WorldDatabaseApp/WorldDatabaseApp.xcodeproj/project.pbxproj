@@ -18,6 +18,8 @@
 		6862FD8726817AD400F682EA /* CountryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6862FD8626817AD400F682EA /* CountryTableViewController.swift */; };
 		6862FD8926817F3700F682EA /* country.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6862FD8826817F3700F682EA /* country.plist */; };
 		6862FD8B26817FB300F682EA /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6862FD8A26817FB300F682EA /* Country.swift */; };
+		688B98C02684183E00C97E2E /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B98BF2684183E00C97E2E /* CountryTableViewCell.swift */; };
+		688B98C226841ECF00C97E2E /* CityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688B98C126841ECF00C97E2E /* CityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		6862FD8626817AD400F682EA /* CountryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewController.swift; sourceTree = "<group>"; };
 		6862FD8826817F3700F682EA /* country.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = country.plist; sourceTree = "<group>"; };
 		6862FD8A26817FB300F682EA /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
+		688B98BF2684183E00C97E2E /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
+		688B98C126841ECF00C97E2E /* CityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		6862FD802681762800F682EA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				688B98BF2684183E00C97E2E /* CountryTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				6862FD8626817AD400F682EA /* CountryTableViewController.swift */,
+				688B98C126841ECF00C97E2E /* CityViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -181,8 +187,10 @@
 				6862FD8726817AD400F682EA /* CountryTableViewController.swift in Sources */,
 				6862FD85268177EA00F682EA /* CountryDataManager.swift in Sources */,
 				6862FD702681757E00F682EA /* ViewController.swift in Sources */,
+				688B98C226841ECF00C97E2E /* CityViewController.swift in Sources */,
 				6862FD6C2681757E00F682EA /* AppDelegate.swift in Sources */,
 				6862FD8B26817FB300F682EA /* Country.swift in Sources */,
+				688B98C02684183E00C97E2E /* CountryTableViewCell.swift in Sources */,
 				6862FD6E2681757E00F682EA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

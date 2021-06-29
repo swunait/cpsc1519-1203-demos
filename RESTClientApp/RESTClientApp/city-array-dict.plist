@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>district</key>
+		<string>British Columbia</string>
+		<key>id</key>
+		<integer>1849</integer>
+		<key>name</key>
+		<string>Abbosford</string>
+		<key>population</key>
+		<integer>105403</integer>
+	</dict>
+	<dict>
+		<key>district</key>
+		<string>Ontario</string>
+		<key>id</key>
+		<integer>1858</integer>
+		<key>name</key>
+		<string>Barrie</string>
+		<key>population</key>
+		<integer>89269</integer>
+	</dict>
+	<dict>
+		<key>district</key>
+		<string>Ontario</string>
+		<key>id</key>
+		<integer>1825</integer>
+		<key>name</key>
+		<string>Brampton</string>
+		<key>population</key>
+		<integer>296711</integer>
+	</dict>
+</array>
+</plist>
