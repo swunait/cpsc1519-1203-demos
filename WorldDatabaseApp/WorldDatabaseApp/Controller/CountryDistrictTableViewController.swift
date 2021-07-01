@@ -1,15 +1,17 @@
 //
-//  CountryTableViewController.swift
+//  CountryDistrictTableViewController.swift
 //  WorldDatabaseApp
 //
-//  Created by Sam WU on 2021-06-21.
+//  Created by Sam WU on 2021-06-30.
 //
 
 import UIKit
 
-class CountryTableViewController: UITableViewController {
+class CountryDistrictTableViewController: UITableViewController {
     
-    let dataManager = CountryDataManager()
+    var selectedCountry: Country?
+    
+    let currrentCityDataManager = CityDataManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,51 +21,31 @@ class CountryTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
-//        tableView.rowHeight = UITableView.automaticDimension
-//        tableView.estimatedRowHeight = 600
+        if let selectedCountry = selectedCountry {
+            self.navigationItem.title = selectedCountry.name
+        }
     }
-    
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 150
-//    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 1
-        return dataManager.continents.count
+        // #warning Incomplete implementation, return the number of sections
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return dataManager.numberOfCountries()
-        let currentContinent = dataManager.continents[section]
-        return dataManager.numberOfCountries(for: currentContinent)
+        // #warning Incomplete implementation, return the number of rows
+        return currrentCityDataManager.distinctDistricts(for: selectedCountry!.code).count
     }
-
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "districtCell", for: indexPath)
+
         // Configure the cell...
-//        let currentCountry = dataManager.country(at: indexPath)
-        let currentContinent = dataManager.continents[indexPath.section]
-        let currentCountry = dataManager.countries(for: currentContinent)[indexPath.row]
-    
-        cell.textLabel?.text = currentCountry.name
-        cell.detailTextLabel?.text = currentCountry.code
-        let imageFileName = "\(currentCountry.name)-flag"
-        cell.imageView?.image = UIImage(named: imageFileName)
+        let currentDistrict = currrentCityDataManager.distinctDistricts(for: selectedCountry!.code)[indexPath.row]
+        cell.textLabel?.text = currentDistrict
 
         return cell
-    }
-  
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return dataManager.continents[section]
-    }
-    
-    override func sectionIndexTitles(for tableView: UITableView) -> [String]? {
-        return dataManager.continents
     }
 
     /*
@@ -101,24 +83,14 @@ class CountryTableViewController: UITableViewController {
     }
     */
 
-
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "countrySelctionSegue" {
-            if let districtVC = segue.destination as? CountryDistrictTableViewController,
-               let selectedIndexPath = tableView.indexPathForSelectedRow {
-                
-                let currentContinent = dataManager.continents[selectedIndexPath.section]
-                let currentCountry = dataManager.countries(for: currentContinent)[selectedIndexPath.row]
-                
-                districtVC.selectedCountry = currentCountry
-            }
-        }
     }
-    
+    */
 
 }
