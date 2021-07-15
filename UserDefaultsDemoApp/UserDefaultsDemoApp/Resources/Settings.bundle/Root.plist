@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Login Settings</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Username</string>
+			<key>Key</key>
+			<string>username_preference</string>
+			<key>DefaultValue</key>
+			<string>user1519</string>
+			<key>IsSecure</key>
+			<false/>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Password</string>
+			<key>Key</key>
+			<string>password_preference</string>
+			<key>DefaultValue</key>
+			<string>Passwrod1519</string>
+			<key>IsSecure</key>
+			<true/>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Remember Me</string>
+			<key>Key</key>
+			<string>rememberme_preference</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Font Settings</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Key</key>
+			<string>fontfamily_preference</string>
+			<key>DefaultValue</key>
+			<string>Arial</string>
+			<key>Title</key>
+			<string>Font Family</string>
+			<key>Titles</key>
+			<array>
+				<string>Arial</string>
+				<string>Baskerville</string>
+				<string>Chalkboard SE</string>
+				<string>Futura</string>
+				<string>Marker Felt</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>Arial</string>
+				<string>Baskerville</string>
+				<string>Chalkboard SE</string>
+				<string>Futura</string>
+				<string>Marker Felt</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSSliderSpecifier</string>
+			<key>Key</key>
+			<string>fontsize_preference</string>
+			<key>DefaultValue</key>
+			<integer>16</integer>
+			<key>MinimumValue</key>
+			<integer>12</integer>
+			<key>MaximumValue</key>
+			<integer>36</integer>
+			<key>MinimumValueImage</key>
+			<string></string>
+			<key>MaximumValueImage</key>
+			<string></string>
+		</dict>
+	</array>
+</dict>
+</plist>
