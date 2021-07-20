@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>fontName</key>
+		<string>Arial</string>
+		<key>fontSize</key>
+		<integer>16</integer>
+	</dict>
+	<dict>
+		<key>fontName</key>
+		<string>Courier New</string>
+		<key>fontSize</key>
+		<integer>15</integer>
+	</dict>
+	<dict>
+		<key>fontName</key>
+		<string>Verdana</string>
+		<key>fontSize</key>
+		<integer>14</integer>
+	</dict>
+</array>
+</plist>

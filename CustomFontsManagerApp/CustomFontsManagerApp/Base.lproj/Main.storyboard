@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Font LIst-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController title="Font LIst" id="BYZ-38-t0r" customClass="FontLIstViewController" customModule="CustomFontsManagerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vGf-uU-HM9">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Font List" id="8Gd-ep-zjZ">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mn9-Cy-GJG">
+                                            <connections>
+                                                <segue destination="YA4-Nv-o9f" kind="showDetail" identifier="addFontSegue" id="LMV-5I-DtX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HvM-qu-RN1">
+                                <rect key="frame" x="34" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="m3X-bS-z3p">
+                                    <size key="itemSize" width="200" height="100"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="fontCell" id="Mql-xm-bka" customClass="FontCollectionViewCell" customModule="CustomFontsManagerApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nJm-yT-9kO">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TOx-cw-zZM">
+                                                    <rect key="frame" x="0.0" y="8" width="200" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font Size" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSe-wT-xO0">
+                                                    <rect key="frame" x="0.0" y="39" width="200" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TOx-cw-zZM" firstAttribute="top" secondItem="nJm-yT-9kO" secondAttribute="top" constant="8" id="1Pb-hP-6mJ"/>
+                                                <constraint firstAttribute="trailing" secondItem="TOx-cw-zZM" secondAttribute="trailing" id="1jD-KJ-3W7"/>
+                                                <constraint firstItem="TOx-cw-zZM" firstAttribute="leading" secondItem="nJm-yT-9kO" secondAttribute="leading" id="Bbc-PM-vYg"/>
+                                                <constraint firstItem="SSe-wT-xO0" firstAttribute="top" secondItem="TOx-cw-zZM" secondAttribute="bottom" constant="10" id="MmB-Zi-JI6"/>
+                                                <constraint firstItem="SSe-wT-xO0" firstAttribute="leading" secondItem="nJm-yT-9kO" secondAttribute="leading" id="b0B-6P-lTY"/>
+                                                <constraint firstAttribute="trailing" secondItem="SSe-wT-xO0" secondAttribute="trailing" id="viA-3u-JcR"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="fontNameLabel" destination="TOx-cw-zZM" id="2Kd-8h-02U"/>
+                                            <outlet property="fontSizeLabel" destination="SSe-wT-xO0" id="OT6-v7-Gvz"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HvM-qu-RN1" secondAttribute="trailing" id="9Kb-Me-62Y"/>
+                            <constraint firstItem="vGf-uU-HM9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="G4C-18-boC"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HvM-qu-RN1" secondAttribute="bottom" id="LEs-4Q-2c4"/>
+                            <constraint firstItem="HvM-qu-RN1" firstAttribute="top" secondItem="vGf-uU-HM9" secondAttribute="bottom" id="RUP-om-NLb"/>
+                            <constraint firstItem="vGf-uU-HM9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gtD-iA-bdg"/>
+                            <constraint firstItem="HvM-qu-RN1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lYN-y5-bEN"/>
+                            <constraint firstItem="vGf-uU-HM9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="sCg-gq-y74"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fontCollectionView" destination="HvM-qu-RN1" id="tFU-hI-sq9"/>
+                        <segue destination="YA4-Nv-o9f" kind="show" identifier="manualEditSegue" id="XfD-VF-6Lg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="124"/>
+        </scene>
+        <!--Font Detail-->
+        <scene sceneID="wkj-oQ-Egt">
+            <objects>
+                <viewController title="Font Detail" id="YA4-Nv-o9f" customClass="FontDetailViewController" customModule="CustomFontsManagerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="efV-ih-pz6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fHd-Qx-rCC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                <items>
+                                    <navigationItem title="Font Detail" id="3yX-gD-kWK">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="byu-L3-86j">
+                                            <connections>
+                                                <segue destination="JYU-Ne-c3W" kind="unwind" unwindAction="unwindCancelFontDetailWithSegue:" id="BGv-yc-2bB"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="6PZ-Qv-EBy">
+                                            <connections>
+                                                <action selector="saveFontDetail:" destination="YA4-Nv-o9f" id="2hB-3D-r2z"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="font name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j2y-Ip-I4R">
+                                <rect key="frame" x="20" y="99" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="font size" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H6C-8V-J9S">
+                                <rect key="frame" x="20" y="148" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="t7L-SD-TC0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fHd-Qx-rCC" firstAttribute="trailing" secondItem="t7L-SD-TC0" secondAttribute="trailing" id="NKF-Fc-B6m"/>
+                            <constraint firstItem="fHd-Qx-rCC" firstAttribute="leading" secondItem="t7L-SD-TC0" secondAttribute="leading" id="rHN-3s-Ea8"/>
+                            <constraint firstItem="fHd-Qx-rCC" firstAttribute="top" secondItem="t7L-SD-TC0" secondAttribute="top" symbolic="YES" id="uXG-Xc-vok"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="z8V-3S-eJF"/>
+                    <connections>
+                        <outlet property="fontNameTextField" destination="j2y-Ip-I4R" id="ItS-g1-l75"/>
+                        <outlet property="fontSizeTextField" destination="H6C-8V-J9S" id="riv-8g-xsl"/>
+                        <segue destination="JYU-Ne-c3W" kind="unwind" identifier="manualSaveSegue" unwindAction="unwindSaveFontDetailWithSegue:" id="Hw7-oP-qRS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lQR-xY-2bo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="JYU-Ne-c3W" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1110" y="124"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="XfD-VF-6Lg"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
