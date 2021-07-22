@@ -23,7 +23,7 @@
                                     <navigationItem title="Font List" id="8Gd-ep-zjZ">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Mn9-Cy-GJG">
                                             <connections>
-                                                <segue destination="YA4-Nv-o9f" kind="showDetail" identifier="addFontSegue" id="LMV-5I-DtX"/>
+                                                <segue destination="YA4-Nv-o9f" kind="show" identifier="addFontSegue" id="hfK-bk-vyy"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -68,6 +68,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="SSe-wT-xO0" secondAttribute="trailing" id="viA-3u-JcR"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <connections>
                                             <outlet property="fontNameLabel" destination="TOx-cw-zZM" id="2Kd-8h-02U"/>
                                             <outlet property="fontSizeLabel" destination="SSe-wT-xO0" id="OT6-v7-Gvz"/>
@@ -90,7 +91,7 @@
                     </view>
                     <connections>
                         <outlet property="fontCollectionView" destination="HvM-qu-RN1" id="tFU-hI-sq9"/>
-                        <segue destination="YA4-Nv-o9f" kind="show" identifier="manualEditSegue" id="XfD-VF-6Lg"/>
+                        <segue destination="YA4-Nv-o9f" kind="show" identifier="manualEditFontSegue" id="XfD-VF-6Lg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -134,6 +135,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FontId" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oNK-MZ-c5K">
+                                <rect key="frame" x="20" y="210" width="374" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sg7-6z-NUc">
+                                <rect key="frame" x="185" y="246" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Delete"/>
+                                <connections>
+                                    <action selector="deleteFont:" destination="YA4-Nv-o9f" eventType="touchUpInside" id="Btb-gi-1YD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GH7-49-SmV">
+                                <rect key="frame" x="168" y="284" width="78" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Select Font"/>
+                                <connections>
+                                    <segue destination="abk-iU-95w" kind="show" id="ZcW-CM-ilG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="t7L-SD-TC0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -145,15 +169,103 @@
                     </view>
                     <navigationItem key="navigationItem" id="z8V-3S-eJF"/>
                     <connections>
+                        <outlet property="fontIdLabel" destination="oNK-MZ-c5K" id="7gX-b2-i9j"/>
                         <outlet property="fontNameTextField" destination="j2y-Ip-I4R" id="ItS-g1-l75"/>
                         <outlet property="fontSizeTextField" destination="H6C-8V-J9S" id="riv-8g-xsl"/>
-                        <segue destination="JYU-Ne-c3W" kind="unwind" identifier="manualSaveSegue" unwindAction="unwindSaveFontDetailWithSegue:" id="Hw7-oP-qRS"/>
+                        <segue destination="JYU-Ne-c3W" kind="unwind" identifier="manualSaveSegue" unwindAction="unwindSaveFontDetailWithSegue:" id="3Nb-yU-vrq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQR-xY-2bo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="JYU-Ne-c3W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1110" y="124"/>
+            <point key="canvasLocation" x="1108.6956521739132" y="123.88392857142857"/>
+        </scene>
+        <!--Font Select-->
+        <scene sceneID="sCy-Sv-6Vk">
+            <objects>
+                <viewController title="Font Select" id="hTQ-kO-48I" customClass="FontSelectViewController" customModule="CustomFontsManagerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z1M-KF-5t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bkf-0l-DK0">
+                                <rect key="frame" x="0.0" y="56" width="414" height="752"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="idG-8M-aUT">
+                                    <size key="itemSize" width="160" height="64"/>
+                                    <size key="estimatedItemSize" width="160" height="64"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="fontCell" id="eBy-p9-zLQ" customClass="FontSelectCollectionViewCell" customModule="CustomFontsManagerApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="160" height="64"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zfT-h6-jy6">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="64"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Font Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EIO-wH-ACh">
+                                                    <rect key="frame" x="0.0" y="16" width="160" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EIO-wH-ACh" firstAttribute="top" secondItem="zfT-h6-jy6" secondAttribute="top" constant="16" id="7Ww-LH-Yma"/>
+                                                <constraint firstAttribute="trailing" secondItem="EIO-wH-ACh" secondAttribute="trailing" id="NSb-y5-por"/>
+                                                <constraint firstItem="EIO-wH-ACh" firstAttribute="leading" secondItem="zfT-h6-jy6" secondAttribute="leading" id="lEa-f6-JSv"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                        <size key="customSize" width="160" height="64"/>
+                                        <connections>
+                                            <outlet property="fontNameLabel" destination="EIO-wH-ACh" id="vo8-mB-xbQ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="V3g-aM-5Ah"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="bkf-0l-DK0" firstAttribute="top" secondItem="V3g-aM-5Ah" secondAttribute="top" id="3zG-pQ-9M3"/>
+                            <constraint firstItem="V3g-aM-5Ah" firstAttribute="trailing" secondItem="bkf-0l-DK0" secondAttribute="trailing" id="Zyw-ON-jy3"/>
+                            <constraint firstItem="V3g-aM-5Ah" firstAttribute="bottom" secondItem="bkf-0l-DK0" secondAttribute="bottom" id="hmi-fD-sKG"/>
+                            <constraint firstItem="bkf-0l-DK0" firstAttribute="leading" secondItem="V3g-aM-5Ah" secondAttribute="leading" id="odQ-yt-wrJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Font Select" id="lI7-Gi-2Tt"/>
+                    <connections>
+                        <outlet property="fontCollectionView" destination="bkf-0l-DK0" id="Ezd-1L-2j6"/>
+                        <segue destination="Eke-lt-56E" kind="unwind" identifier="manualSelectFontSegue" unwindAction="unwindSelectFontWithSegue:" id="hHx-K9-J6Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vP8-NM-hzA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Eke-lt-56E" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2921.739130434783" y="123.88392857142857"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="mH2-XL-EId">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="abk-iU-95w" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="WYP-29-IJh"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0zN-LJ-8dp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hTQ-kO-48I" kind="relationship" relationship="rootViewController" id="0cf-P3-6rj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1yI-oV-vFd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2011.594202898551" y="123.88392857142857"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -162,6 +274,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

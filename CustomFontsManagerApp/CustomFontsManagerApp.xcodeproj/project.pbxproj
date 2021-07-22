@@ -19,6 +19,8 @@
 		68C563CB26A6632A00962FD3 /* FontLIstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C563CA26A6632A00962FD3 /* FontLIstViewController.swift */; };
 		68C563CD26A6634200962FD3 /* FontDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C563CC26A6634200962FD3 /* FontDetailViewController.swift */; };
 		68C563CF26A666FC00962FD3 /* FontCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C563CE26A666FC00962FD3 /* FontCollectionViewCell.swift */; };
+		68C563D126A9096A00962FD3 /* FontSelectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C563D026A9096A00962FD3 /* FontSelectCollectionViewCell.swift */; };
+		68C563D326A9098A00962FD3 /* FontSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68C563D226A9098A00962FD3 /* FontSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		68C563CA26A6632A00962FD3 /* FontLIstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLIstViewController.swift; sourceTree = "<group>"; };
 		68C563CC26A6634200962FD3 /* FontDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontDetailViewController.swift; sourceTree = "<group>"; };
 		68C563CE26A666FC00962FD3 /* FontCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontCollectionViewCell.swift; sourceTree = "<group>"; };
+		68C563D026A9096A00962FD3 /* FontSelectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSelectCollectionViewCell.swift; sourceTree = "<group>"; };
+		68C563D226A9098A00962FD3 /* FontSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				68C563CE26A666FC00962FD3 /* FontCollectionViewCell.swift */,
+				68C563D026A9096A00962FD3 /* FontSelectCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -105,6 +110,7 @@
 			children = (
 				68C563CA26A6632A00962FD3 /* FontLIstViewController.swift */,
 				68C563CC26A6634200962FD3 /* FontDetailViewController.swift */,
+				68C563D226A9098A00962FD3 /* FontSelectViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -195,6 +201,8 @@
 				68C563CB26A6632A00962FD3 /* FontLIstViewController.swift in Sources */,
 				68C563CF26A666FC00962FD3 /* FontCollectionViewCell.swift in Sources */,
 				68C563AD26A65B0100962FD3 /* AppDelegate.swift in Sources */,
+				68C563D326A9098A00962FD3 /* FontSelectViewController.swift in Sources */,
+				68C563D126A9096A00962FD3 /* FontSelectCollectionViewCell.swift in Sources */,
 				68C563AF26A65B0100962FD3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

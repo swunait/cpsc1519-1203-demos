@@ -6,8 +6,13 @@
 //
 
 import Foundation
+import UIKit
 
 class CustomFontDataManager {
+    
+    static let sharedDataManger = CustomFontDataManager()
+    
+    static let fontFamilyNames:[String] = UIFont.familyNames.sorted()
     
     private let dataFileName = "CustomFonts"
     
@@ -18,13 +23,14 @@ class CustomFontDataManager {
     
     var customFonts:[CustomFont] = []
     
-    func add(_ newCustomFont: inout CustomFont) {
+    func add(_ newCustomFont: inout CustomFont) -> Bool {
         let hasFontName = customFonts.contains { $0.fontName == newCustomFont.fontName }
         if !hasFontName {
             newCustomFont.fontId = UUID().uuidString
             customFonts.append(newCustomFont)
-            writeToFile()
+            return writeToFile()
         }
+        return false
     }
     
     func update(at index: Int, updatedCustomFont: CustomFont) -> Bool {
@@ -41,6 +47,7 @@ class CustomFontDataManager {
         var arrayDict = [[String: AnyObject]]()
         for currentCustomFont in customFonts {
             var dict = [String: AnyObject]()
+            dict["fontId"] = currentCustomFont.fontId as AnyObject
             dict["fontName"] = currentCustomFont.fontName as AnyObject
             dict["fontSize"] = currentCustomFont.fontSize as AnyObject
             arrayDict.append(dict)
@@ -56,6 +63,7 @@ class CustomFontDataManager {
         
         for currentDict in arrayDict {
             var newCustomFont = CustomFont()
+            newCustomFont.fontId = currentDict["fontId"] as? String
             newCustomFont.fontName = currentDict["fontName"] as! String
             newCustomFont.fontSize = Int(truncating: currentDict["fontSize"] as! NSNumber)
             customFonts.append(newCustomFont)

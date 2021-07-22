@@ -9,7 +9,7 @@ import UIKit
 
 class FontDetailViewController: UIViewController {
     
-    let dataManager = CustomFontDataManager()
+    let dataManager = CustomFontDataManager.sharedDataManger
     var editMode = false
     var editIndex = 0
     var editCustomFont: CustomFont?
@@ -19,11 +19,15 @@ class FontDetailViewController: UIViewController {
     
     @IBOutlet weak var fontSizeTextField: UITextField!
     
+    
+    @IBOutlet weak var fontIdLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         if editMode {
+            fontIdLabel.text = editCustomFont!.fontId ?? ""
             fontNameTextField.text = editCustomFont?.fontName
             fontSizeTextField.text = "\(editCustomFont!.fontSize)"
         }
@@ -53,16 +57,41 @@ class FontDetailViewController: UIViewController {
             newCustomFont.fontName = fontName
             newCustomFont.fontSize = fontSize
             if (editMode) {
-                dataManager.update(at: editIndex, updatedCustomFont: newCustomFont)
+                if dataManager.update(at: editIndex, updatedCustomFont: newCustomFont) {
+                    print("Update was succcessful")
+                } else {
+                    print("Updated was not successful")
+                }
             } else {
-                dataManager.add(&newCustomFont)
+                if dataManager.add(&newCustomFont) {
+                    print("Add was successful")
+                } else {
+                    print("Add was not successful")
+                }
             }
            
             self.performSegue(withIdentifier: "manualSaveSegue", sender: self)
             
-            // add logic to notify the collection to reload data
         }
         
+    }
+    
+    
+    @IBAction func deleteFont(_ sender: UIButton) {
+        if editMode && editCustomFont != nil {
+            if (dataManager.delete(at: editIndex)) {
+                print("Delete was successful")
+                self.performSegue(withIdentifier: "manualSaveSegue", sender: self)
+            } else {
+                print("Delete was not successful")
+            }
+        }
+    }
+    
+    @IBAction func unwindSelectFont(segue: UIStoryboardSegue) {
+        if let fontSelectVC = segue.source as? FontSelectViewController {
+            fontNameTextField.text = fontSelectVC.selectedFontName
+        }
     }
     
 }

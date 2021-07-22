@@ -9,18 +9,19 @@ import UIKit
 
 class FontLIstViewController: UIViewController {
     
-    let dataManager = CustomFontDataManager()
+    let dataManager = CustomFontDataManager.sharedDataManger
     
     var selectedIndexPath: IndexPath?
     
     @IBOutlet weak var fontCollectionView: UICollectionView!
     
     @IBAction func unwindCancelFontDetail(segue: UIStoryboardSegue) {
-        
+        selectedIndexPath = nil
     }
     
     @IBAction func unwindSaveFontDetail(segue: UIStoryboardSegue) {
-        
+        fontCollectionView.reloadData()
+        selectedIndexPath = nil
     }
     
 
@@ -42,9 +43,15 @@ class FontLIstViewController: UIViewController {
         guard let fontDetailVC = segue.destination as? FontDetailViewController
         else { return }
         // Pass the selected object to the new view controller.
-        fontDetailVC.editIndex = selectedIndexPath!.item
-        fontDetailVC.editMode = true
-        fontDetailVC.editCustomFont = dataManager.customFonts[fontDetailVC.editIndex]
+        if segue.identifier == "manualEditFontSegue" {
+            fontDetailVC.editIndex = selectedIndexPath!.item
+            fontDetailVC.editMode = true
+            fontDetailVC.editCustomFont = dataManager.customFonts[fontDetailVC.editIndex]
+        } else if segue.identifier == "addFontSegue" {
+            fontDetailVC.editMode = false
+            fontDetailVC.editCustomFont = nil
+        }
+       
     }
     
 
@@ -71,6 +78,6 @@ extension FontLIstViewController : UICollectionViewDataSource {
 extension FontLIstViewController : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
-        self.performSegue(withIdentifier: "manualEditSegue", sender: self)
+        self.performSegue(withIdentifier: "manualEditFontSegue", sender: self)
     }
 }
