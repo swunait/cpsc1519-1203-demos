@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6829ED2D26BE17C800CC79CE /* MealCategoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6829ED2C26BE17C800CC79CE /* MealCategoryResponse.swift */; };
+		6829ED2F26BE196B00CC79CE /* TheMealDbApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6829ED2E26BE196B00CC79CE /* TheMealDbApi.swift */; };
 		6871E95526799ADA002022BF /* country-array.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6871E95426799ADA002022BF /* country-array.plist */; };
 		6871E95726799B5B002022BF /* country-dict List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6871E95626799B5B002022BF /* country-dict List.plist */; };
 		6871E9592679AAA6002022BF /* city-array-dict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6871E9582679AAA6002022BF /* city-array-dict.plist */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6829ED2C26BE17C800CC79CE /* MealCategoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCategoryResponse.swift; sourceTree = "<group>"; };
+		6829ED2E26BE196B00CC79CE /* TheMealDbApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMealDbApi.swift; sourceTree = "<group>"; };
 		6871E95426799ADA002022BF /* country-array.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "country-array.plist"; sourceTree = "<group>"; };
 		6871E95626799B5B002022BF /* country-dict List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "country-dict List.plist"; sourceTree = "<group>"; };
 		6871E9582679AAA6002022BF /* city-array-dict.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "city-array-dict.plist"; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 			children = (
 				68992FBD2674542100AAB249 /* Country.swift */,
 				68992FBF2674552800AAB249 /* CountryAPI.swift */,
+				6829ED2C26BE17C800CC79CE /* MealCategoryResponse.swift */,
+				6829ED2E26BE196B00CC79CE /* TheMealDbApi.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -168,6 +174,8 @@
 				68992FA9267451F900AAB249 /* AppDelegate.swift in Sources */,
 				68992FC02674552800AAB249 /* CountryAPI.swift in Sources */,
 				68992FAB267451F900AAB249 /* SceneDelegate.swift in Sources */,
+				6829ED2D26BE17C800CC79CE /* MealCategoryResponse.swift in Sources */,
+				6829ED2F26BE196B00CC79CE /* TheMealDbApi.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,6 +17,20 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         networkRequestIndicator.startAnimating()
         
+        TheMealDbApi.listAllMealCategories { currentMealCategoryResponse in
+            self.networkRequestIndicator.stopAnimating()
+            
+            print("The number of cateogries \(currentMealCategoryResponse.categories.count)")
+            for currentMealCategory in currentMealCategoryResponse.categories {
+                print("\(currentMealCategory.idCategory)")
+                print("\(currentMealCategory.strCategory)")
+                print("\(currentMealCategory.strCategoryThumb)")
+                print("\(currentMealCategory.strCategoryDescription)")
+                
+            }
+            
+        }
+        
     }
 
 
